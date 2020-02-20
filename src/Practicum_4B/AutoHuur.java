@@ -34,7 +34,7 @@ public class AutoHuur {
     }
 
     public double totaalPrijs(){
-        double standaardPrijsPerDag = this.gehuurdeAuto.getPrijsPerDag();
+        double standaardPrijsPerDag = (this.huurder != null) ? this.gehuurdeAuto.getPrijsPerDag() : 0;
         var aantalDagen = this.getAantalDagen();
         var kortingKlant = (this.huurder != null) ? this.huurder.getKorting() : 0;
 

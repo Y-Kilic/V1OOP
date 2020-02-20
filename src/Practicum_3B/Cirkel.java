@@ -16,6 +16,6 @@ public class Cirkel {
 
     @Override
     public String toString() {
-        return "cirkel (" +this.xPositie + " , " + this.yPositie + ") met radius: 10";
+        return "cirkel (" + this.xPositie + " , " + this.yPositie + ") met radius: 10";
     }
 }

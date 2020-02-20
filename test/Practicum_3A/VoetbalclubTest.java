@@ -1,3 +1,5 @@
+package Practicum_3A;
+
 import Practicum_2B.Voetbalclub;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +30,7 @@ class VoetbalclubTest {
         club.verwerkResultaat('f');
         club.verwerkResultaat('f');
 
-        assertEquals("testClub 3 1 1 0 4", club.toString());
+        assertEquals("testClub 3 1 1 1 4", club.toString());
     }
 
     /* Eis: het verwerken van de resultaten ‘w’, ‘g’ en ‘v’ levert respectievelijk 3, 1 en 0 punten op,
@@ -39,9 +41,13 @@ class VoetbalclubTest {
         Voetbalclub club = new Voetbalclub("testClub");
         club.verwerkResultaat('w');
         club.verwerkResultaat('g');
+
+        assertEquals("testClub 2 1 1 0 4", club.toString());
+
         club.verwerkResultaat('v');
 
-        assertEquals("testClub 3 1 1 0 4", club.toString());
+        assertEquals("testClub 3 1 1 1 4", club.toString());
+
     }
 
     /* Eis: herhaaldelijk verwerken van deze resultaten moet zorgen voor een correcte optelling van wedstrijdaantallen
@@ -55,13 +61,13 @@ class VoetbalclubTest {
     club.verwerkResultaat('g');
     club.verwerkResultaat('v');
 
-    assertEquals("testClub 3 1 1 0 4", club.toString());
+    assertEquals("testClub 3 1 1 1 4", club.toString());
 
     club.verwerkResultaat('w');
     club.verwerkResultaat('g');
     club.verwerkResultaat('v');
 
-    assertEquals("testClub 6 2 2 0 8", club.toString());
+    assertEquals("testClub 6 2 2 2 8", club.toString());
 }
 
 }

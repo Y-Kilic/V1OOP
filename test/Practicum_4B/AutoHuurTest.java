@@ -2,6 +2,8 @@ package Practicum_4B;
 
 import org.junit.jupiter.api.Test;
 
+import java.net.Authenticator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AutoHuurTest {
@@ -45,7 +47,6 @@ public class AutoHuurTest {
     @Test
     public void TestGeenHuurderGeenAuto(){
         AutoHuur ah2 = new AutoHuur();
-
         assertEquals("er is geen auto bekend"
                 + System.lineSeparator()
                 + "er is geen huurder bekend"
@@ -80,6 +81,22 @@ public class AutoHuurTest {
                         + System.lineSeparator()
                         + "aantal dagen: 0 en dat kost 0.0"
                 , ah2.toString());
+    }
+
+    @Test
+    public void TestTotaalPrijs(){
+        AutoHuur ah2 = new AutoHuur();
+        assertEquals(0.0, ah2.totaalPrijs());
+
+        Auto a2 = new Auto("Ferrari", 3500);
+        ah2.setGehuurdeAuto(a2);
+
+        Klant k = new Klant("Mijnheer de Vries");
+        k.setKorting(10.0);
+        ah2.setHuurder(k);
+
+        ah2.setAantalDagen(1);
+        assertEquals(3150.0, ah2.totaalPrijs());
     }
 
 }
