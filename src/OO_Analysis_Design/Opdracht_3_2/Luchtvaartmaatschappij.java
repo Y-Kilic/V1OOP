@@ -13,6 +13,5 @@ public class Luchtvaartmaatschappij {
     }
 
     public TreeMap<String, Vliegtuig> geefVliegtuigen(){
-
     }
 }
