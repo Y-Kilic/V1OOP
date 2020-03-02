@@ -16,6 +16,7 @@ public class Main_les6 {
         public static boolean test(){
             Object obj = "888";
             if(obj instanceof Klant) { return false; };
+            return true;
         }
 
 }

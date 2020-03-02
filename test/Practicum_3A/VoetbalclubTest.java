@@ -51,8 +51,7 @@ class VoetbalclubTest {
     }
 
     /* Eis: herhaaldelijk verwerken van deze resultaten moet zorgen voor een correcte optelling van wedstrijdaantallen
-    en punten.
-*/
+    en punten.*/
     @Test
     public void TestHerhaaldelijkVerwerken() {
 
