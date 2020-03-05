@@ -19,18 +19,23 @@ public class Game {
     }
 
     public double huidigeWaarde(){
-        int jaarNu = LocalDate.now().getYear() ; // 1 jaar geleden
+        int jaarNu = LocalDate.now().getYear() ;
         int jaarVerschil = jaarNu - releaseJaar;
 
         if (jaarVerschil == 0){ return nieuwprijs;}
         else{
             var prijsZonderKorting = nieuwprijs;
 
-            int kortingBedrag = 30 * jaarVerschil;
 
-            var bedragKorting = prijsZonderKorting / 100 * kortingBedrag;
+            double kortingBedrag = 0.3;
+            double kortingBedrag2 = 0.0;
 
-            return nieuwprijs - bedragKorting;
+            for (int i = 1; i < jaarVerschil; i++)
+            {
+                kortingBedrag2 += kortingBedrag * kortingBedrag;
+            }
+
+            return kortingBedrag2;
         }
 
     }
@@ -41,7 +46,6 @@ public class Game {
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
         return releaseJaar == game.releaseJaar &&
-                Double.compare(game.nieuwprijs, nieuwprijs) == 0 &&
                 naam.equals(game.naam);
     }
 
@@ -53,6 +57,10 @@ public class Game {
     @Override
     public String toString() {
         double huidigeWaardeDecimal2 = Math.round(this.huidigeWaarde() * 100.0) / 100.0;
-        return this.naam + ", uitgegeven in " + this.releaseJaar + "; nieuwprijs: €" + this.nieuwprijs + " nu voor: " + huidigeWaardeDecimal2;
+        String budgetTweeCommas = String.format("%.2f",this.huidigeWaarde());
+        String nieuwPrijsTweeCommas = String.format("%.2f",this.nieuwprijs);
+var result = this.naam + ", uitgegeven in " + this.releaseJaar + "; nieuwprijs: €" + nieuwPrijsTweeCommas + " nu voor: €" + budgetTweeCommas;
+
+        return result;
     }
 }

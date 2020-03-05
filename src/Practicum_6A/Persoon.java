@@ -31,13 +31,22 @@ public class Persoon {
     }
 
     public boolean verkoop(Game g, Persoon koper) {
+        if (koper.getBudget() >= g.huidigeWaarde() && !koper.gameArrayList.contains(g) && this.gameArrayList.contains(g))
+        {
+        this.gameArrayList.remove(g);
+        koper.gameArrayList.add(g);
+        this.budget += g.huidigeWaarde();
+        koper.budget -= g.huidigeWaarde();
         return true;
+        }
+        return false;
     }
 
     @Override
     public String toString() {
-        double budgetDecimal2 = Math.round(this.budget * 100.0) / 100.0;
-        String result = "Eric heeft een budget van €" + budgetDecimal2 + " en bezit de volgende games: ";
+        String budgetTweeCommas = String.format("%.2f",this.budget);
+
+        String result = this.naam + " heeft een budget van €" + budgetTweeCommas + " en bezit de volgende games:";
 
         for (Game game : gameArrayList) {
             String tempNaam = System.lineSeparator() + game.toString();
