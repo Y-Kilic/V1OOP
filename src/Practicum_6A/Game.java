@@ -18,26 +18,8 @@ public class Game {
         return this.naam;
     }
 
-    public double huidigeWaarde(){
-        int jaarNu = LocalDate.now().getYear() ;
-        int jaarVerschil = jaarNu - releaseJaar;
-
-        if (jaarVerschil == 0){ return nieuwprijs;}
-        else{
-            var prijsZonderKorting = nieuwprijs;
-
-
-            double kortingBedrag = 0.3;
-            double kortingBedrag2 = 0.0;
-
-            for (int i = 1; i < jaarVerschil; i++)
-            {
-                kortingBedrag2 += kortingBedrag * kortingBedrag;
-            }
-
-            return kortingBedrag2;
-        }
-
+    public double huidigeWaarde() {
+        return this.nieuwprijs * Math.pow(0.7, LocalDate.now().getYear() - releaseJaar);
     }
 
     @Override
