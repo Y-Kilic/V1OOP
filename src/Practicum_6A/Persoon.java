@@ -19,32 +19,31 @@ public class Persoon {
     }
 
     public boolean koop(Game g) {
-        for (Game game : gameArrayList) { if (game.equals(g)){return false;} }
+        if (!gameArrayList.contains(g)) {
+            if (this.budget >= g.huidigeWaarde()) {
+                this.budget -= g.huidigeWaarde();
 
-        if(this.budget >= g.huidigeWaarde()){
-            this.budget -= g.huidigeWaarde();
-
-            gameArrayList.add(g);
-            return true;
+                gameArrayList.add(g);
+                return true;
+            }
         }
         return false;
     }
 
     public boolean verkoop(Game g, Persoon koper) {
-        if (koper.getBudget() >= g.huidigeWaarde() && !koper.gameArrayList.contains(g) && this.gameArrayList.contains(g))
-        {
-        this.gameArrayList.remove(g);
-        koper.gameArrayList.add(g);
-        this.budget += g.huidigeWaarde();
-        koper.budget -= g.huidigeWaarde();
-        return true;
+        if (koper.getBudget() >= g.huidigeWaarde() && !koper.gameArrayList.contains(g) && this.gameArrayList.contains(g)) {
+            this.gameArrayList.remove(g);
+            koper.gameArrayList.add(g);
+            this.budget += g.huidigeWaarde();
+            koper.budget -= g.huidigeWaarde();
+            return true;
         }
         return false;
     }
 
     @Override
     public String toString() {
-        String budgetTweeCommas = String.format("%.2f",this.budget);
+        String budgetTweeCommas = String.format("%.2f", this.budget);
 
         String result = this.naam + " heeft een budget van €" + budgetTweeCommas + " en bezit de volgende games:";
 
