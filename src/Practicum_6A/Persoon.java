@@ -65,4 +65,15 @@ public class Persoon {
         return null;
 
     }
+
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> teKoop) {
+        var gamesNietInBezit = new ArrayList<Game>();
+
+        for (Game game : teKoop) {
+            if (!gameArrayList.contains(game)){
+                gamesNietInBezit.add(game);
+            }
+        }
+        return gamesNietInBezit;
+    }
 }
