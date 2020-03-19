@@ -55,4 +55,14 @@ public class Persoon {
         return result;
 
     }
+
+    public Game zoekGameOpNaam(String spel) {
+        for (Game game : gameArrayList) {
+            if(game.getNaam().equals(spel)){
+                return game;
+            }
+        }
+        return null;
+
+    }
 }

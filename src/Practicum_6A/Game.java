@@ -45,4 +45,6 @@ var result = this.naam + ", uitgegeven in " + this.releaseJaar + "; nieuwprijs: 
 
         return result;
     }
+
+
 }
