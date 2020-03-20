@@ -1,5 +1,7 @@
 package Practicum_8;
 
+import Practicum_9A.Utils;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -35,7 +37,7 @@ public class Computer implements IGoed {
 
     @Override
     public String toString() {
-        return "Computer: " + this.type+ " met productiejaar " + this.productieJaar + " heeft een waarde van: €" + String.format("%.2f",this.huidigeWaarde()) +".";
+        return "Computer: " + this.type+ " met productiejaar " + this.productieJaar + " heeft een waarde van: €" + Utils.euroBedrag(this.huidigeWaarde()) +".";
     }
 
     @Override

@@ -1,5 +1,7 @@
 package Practicum_8;
 
+import Practicum_9A.Utils;
+
 import java.util.Objects;
 
 public abstract class Voertuig implements IGoed{
@@ -25,7 +27,7 @@ public abstract class Voertuig implements IGoed{
 
     @Override
     public String toString() {
-        return "Voertuig: "+ this.type +" met bouwjaar " + this.bouwjaar + " heeft een waarde van: €" + String.format("%.2f",this.huidigeWaarde()) + ".";
+        return "Voertuig: "+ this.type +" met bouwjaar " + this.bouwjaar + " heeft een waarde van: €" + Utils.euroBedrag(this.huidigeWaarde()) + ".";
     }
 
     @Override
