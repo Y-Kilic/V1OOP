@@ -14,7 +14,7 @@ public class CurrencyConverter {
                 String currency = line.split(":")[1];
                 Double rateChanged = Double.parseDouble(currency) * rate;
 
-                listEuros.add(line.split(":")[0] + ": " +  Utils.euroBedrag(rateChanged, 2));
+                listEuros.add(line.split(":")[0] + ": " +  Utils.euroBedrag(rateChanged, 2).replace(",", "."));
 
             }
             return listEuros;
