@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main_11 {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+
+        try{
         Scanner keyboardScanner = new Scanner(System.in);
         String pathToDollars = "";
         String pathToEuros = "";
@@ -67,6 +69,9 @@ public class Main_11 {
         }
 
         bedragenEuros.writeText(result, false);
-
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }

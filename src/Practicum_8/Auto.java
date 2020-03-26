@@ -15,4 +15,14 @@ public class Auto extends Voertuig {
         if (waarde < 0){return 0.00;}
         else {return waarde;}
     }
+
+    public boolean equals(Object obj){
+        boolean IsEqual = false;
+        if (obj instanceof Auto) {
+            Auto VergelijkAuto = (Auto) obj;
+            if (this.kenteken.equals(VergelijkAuto.kenteken) && super.equals(VergelijkAuto))
+                IsEqual = true;
+        }
+        return IsEqual;
+    }
 }

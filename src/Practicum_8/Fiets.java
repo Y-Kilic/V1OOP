@@ -13,4 +13,14 @@ public class Fiets extends Voertuig {
     public double huidigeWaarde() {
         return this.nieuwprijs * Math.pow(0.1, LocalDate.now().getYear() - this.bouwjaar);
     }
+
+    public boolean equals(Object obj){
+        boolean IsEqual = false;
+        if (obj instanceof Fiets) {
+            Fiets VergelijkFiets = (Fiets) obj;
+            if (this.kenteken.equals(VergelijkFiets.kenteken) && super.equals(VergelijkAuto))
+                IsEqual = true;
+        }
+        return IsEqual;
+    }
 }
